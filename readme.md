@@ -21,7 +21,7 @@ Adicione os arquivos de certificados(.crt, .key) dentro da pasta que acabamos de
     /etc/certificados/meucertificado.crt
     /etc/certificados/meucertificado.key
 
-# Executando docker 
+## Executando docker 
 Na raiz do projeto execute o docker compose para inicializar o proxy
 ```sh
 docker compose up -d
