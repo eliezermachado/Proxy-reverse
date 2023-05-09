@@ -20,3 +20,8 @@ mkdir /etc/certificados/
 Adicione os arquivos de certificados(.crt, .key) dentro da pasta que acabamos de criar. o caminho dos arquivos deverão estar da seguinte maneira:
     /etc/certificados/meucertificado.crt
     /etc/certificados/meucertificado.key
+
+#Na raiz do projeto inicialize o docker compose
+```sh
+docker compose up -d
+```
