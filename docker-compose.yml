@@ -1,0 +1,37 @@
+version: "3.3"
+services:
+
+  # Definição do serviço nginx
+  nginx:
+    # Nome do container que será criado
+    container_name: 'nginx-service'    
+    # Configuração da construção da imagem do serviço
+    build:
+      # Diretório onde está o arquivo dockerfile
+      context: .
+      # Caminho para o arquivo dockerfile
+      dockerfile: ./config/nginx-dockerfile
+      
+    # Mapeamento das portas do container com as portas da máquina hospedeira
+    ports:
+      - 80:80
+      - 443:443
+      
+    # Configuração dos volumes compartilhados entre o container e a máquina hospedeira
+    volumes:
+      - ./log/nginx:/var/log/nginx
+      - ./config:/config
+      - /etc/certificados:/etc/certificados:ro
+      
+    # Configuração das redes que o container estará conectado
+    networks:
+      - netproxy
+      
+    # Configuração para reiniciar o container sempre que o docker daemon iniciar
+    restart: always
+
+# Definição da rede que será criada
+networks:
+  netproxy:
+    # Configuração do driver de rede utilizado
+    driver: bridge
